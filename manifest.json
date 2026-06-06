@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "PhishGuard",
+  "name": "JESTER",
   "version": "1.0",
   "description": "LLM-based phishing email detector and explainer.",
   "permissions": [

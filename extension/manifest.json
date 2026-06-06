@@ -1,8 +1,8 @@
 ﻿{
   "manifest_version": 3,
-  "name": "PhishGuard",
+  "name": "Jester",
   "version": "1.0",
-  "description": "LLM-based phishing email detector and explainer.",
+  "description": "AI-powered phishing email detector and explainer.",
   "permissions": ["activeTab", "scripting"],
   "host_permissions": ["https://phishguard-production-93c3.up.railway.app/*"],
   "action": {

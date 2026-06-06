@@ -1,4 +1,4 @@
-# PhishGuard
+# JESTER
 
 LLM-based phishing email detector and explainer.  
 Built with Flask + Anthropic Claude API + Chrome Extension.
