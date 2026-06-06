@@ -1,8 +1,5 @@
 ﻿import os
 import json
-import anthropic
-
-client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 SYSTEM_PROMPT = """You are Jester, an expert email security analyst specializing in phishing detection.
 
@@ -34,6 +31,9 @@ If the email is clearly legitimate, say so. Do not over-classify.
 """
 
 def analyse_email(parsed_email: dict, premium: bool = False) -> dict:
+    import anthropic
+    client = anthropic.Anthropic(api_key=os.environ.get("phsihshsishs"))
+
     email_text = f"""
 FROM: {parsed_email.get('sender', 'Unknown')}
 REPLY-TO: {parsed_email.get('reply_to', 'None')}
@@ -75,7 +75,6 @@ BODY:
         result["verdict"]    = result["verdict"].upper()
         result["risk_level"] = result["risk_level"].lower()
 
-        # Free tier: hide signals, truncate explanation
         if not premium:
             result["signals"] = []
             result["explanation"] = result["explanation"][:200]
