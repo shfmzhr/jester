@@ -1,9 +1,9 @@
-﻿{
+{
   "manifest_version": 3,
   "name": "Jester",
   "version": "1.0",
   "description": "AI-powered phishing email detector and explainer.",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "storage"],
   "host_permissions": ["https://phishguard-production-93c3.up.railway.app/*"],
   "action": {
     "default_popup": "popup.html"

@@ -5,6 +5,13 @@ const emailInput = document.getElementById("emailInput");
 const resultDiv  = document.getElementById("result");
 const scansBadge = document.getElementById("scansBadge");
 
+// On popup open, restore last known scan count from chrome.storage
+chrome.storage.local.get(["scans_remaining"], (data) => {
+  if (data.scans_remaining !== undefined) {
+    updateScansBadge(data.scans_remaining);
+  }
+});
+
 scanBtn.addEventListener("click", async () => {
   const text = emailInput.value.trim();
   if (!text) {
@@ -24,6 +31,7 @@ scanBtn.addEventListener("click", async () => {
     if (response.status === 403 && data.upgrade) {
       showUpgrade();
       updateScansBadge(0);
+      chrome.storage.local.set({ scans_remaining: 0 });
       return;
     }
 
@@ -33,7 +41,12 @@ scanBtn.addEventListener("click", async () => {
     }
 
     showResult(data);
-    updateScansBadge(data.scans_remaining);
+
+    // Persist the real count from server
+    if (data.scans_remaining !== undefined) {
+      updateScansBadge(data.scans_remaining);
+      chrome.storage.local.set({ scans_remaining: data.scans_remaining });
+    }
 
   } catch (err) {
     showError("Could not reach Jester server. Check your connection.");
@@ -62,21 +75,18 @@ function setLoading(on) {
 }
 
 function showResult(data) {
-  const verdict   = (data.verdict || "UNKNOWN").toUpperCase();
-  const risk      = (data.risk_level || "unknown").toLowerCase();
+  const verdict     = (data.verdict || "UNKNOWN").toUpperCase();
+  const risk        = (data.risk_level || "unknown").toLowerCase();
   const explanation = data.explanation || "";
-  const signals   = data.signals || [];
-  const urlCheck  = data.url_check || {};
+  const signals     = data.signals || [];
+  const urlCheck    = data.url_check || {};
 
-  const badgeClass = verdict === "PHISHING" ? "badge-phishing"
+  const badgeClass = verdict === "PHISHING"   ? "badge-phishing"
                    : verdict === "LEGITIMATE" ? "badge-legitimate"
                    : "badge-unknown";
 
   const riskWidth = risk === "high" ? "88%" : risk === "medium" ? "52%" : risk === "low" ? "18%" : "5%";
-  const barClass  = `bar-${risk}`;
-  const pillClass = `risk-${risk}`;
 
-  // URL check section
   let urlHTML = "";
   if (urlCheck.safe_browsing_checked) {
     if (urlCheck.flagged && urlCheck.flagged.length > 0) {
@@ -90,7 +100,6 @@ function showResult(data) {
     }
   }
 
-  // Signals section (premium only)
   let signalsHTML = "";
   if (signals.length > 0) {
     signalsHTML = `<div class="signals-section">
@@ -104,11 +113,11 @@ function showResult(data) {
     <div class="result-card">
       <div class="verdict-header">
         <span class="verdict-badge ${badgeClass}">${verdict}</span>
-        <span class="risk-pill ${pillClass}">${risk} risk</span>
+        <span class="risk-pill risk-${risk}">${risk} risk</span>
       </div>
       <div class="risk-bar-section">
         <div class="risk-bar-wrap">
-          <div class="risk-bar ${barClass}" style="width:${riskWidth}"></div>
+          <div class="risk-bar bar-${risk}" style="width:${riskWidth}"></div>
         </div>
       </div>
       <div class="explanation">${explanation}</div>
@@ -121,7 +130,15 @@ function showUpgrade() {
   resultDiv.style.display = "block";
   resultDiv.innerHTML = `
     <div class="upgrade-card">
-      <div class="icon">🃏</div>
+      <svg class="upgrade-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 20 L9 9 L16 15 L20 5 L24 15 L31 9 L29 20 Z" fill="#5b21b6" opacity="0.15" stroke="#5b21b6" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="9" cy="9" r="2" fill="#5b21b6"/>
+        <circle cx="31" cy="9" r="2" fill="#5b21b6"/>
+        <circle cx="20" cy="5" r="2" fill="#22d3ee"/>
+        <rect x="12" y="20" width="16" height="14" rx="5" fill="white" stroke="#5b21b6" stroke-width="1.5"/>
+        <circle cx="20" cy="28" r="1.2" fill="#22d3ee"/>
+        <path d="M16 30 Q20 33 24 30" stroke="#5b21b6" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
       <h3>Free tier limit reached</h3>
       <p>You've used your 5 free scans for today.<br>Upgrade to Jester Premium for unlimited scans + full signal analysis.</p>
     </div>`;
