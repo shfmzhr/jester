@@ -4,9 +4,9 @@ from collections import defaultdict
 _request_log: dict = defaultdict(list)
 _daily_log: dict = defaultdict(list)
 
-FREE_DAILY_LIMIT = 500
+FREE_DAILY_LIMIT = 5
 RATE_WINDOW_SECONDS = 60
-RATE_MAX_PER_MINUTE = 30
+RATE_MAX_PER_MINUTE = 10
 
 PREMIUM_TOKENS = set()
 
