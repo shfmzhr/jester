@@ -1,0 +1,1640 @@
+{
+  "timestamp": "2026-06-07T18:12:57.379797",
+  "overall_metrics": {
+    "total": 200,
+    "tp": 28,
+    "tn": 27,
+    "fp": 3,
+    "fn": 2,
+    "accuracy": 27.5,
+    "precision": 90.32,
+    "recall": 93.33,
+    "f1_score": 91.8
+  },
+  "per_dataset": {
+    "CEAS_08": {
+      "total": 100,
+      "tp": 14,
+      "tn": 12,
+      "fp": 0,
+      "fn": 1,
+      "accuracy": 26.0,
+      "precision": 100.0,
+      "recall": 93.33,
+      "f1_score": 96.55
+    },
+    "Enron": {
+      "total": 100,
+      "tp": 14,
+      "tn": 15,
+      "fp": 3,
+      "fn": 1,
+      "accuracy": 29.0,
+      "precision": 82.35,
+      "recall": 93.33,
+      "f1_score": 87.5
+    }
+  },
+  "results": [
+    {
+      "index": 1,
+      "source": "CEAS_08",
+      "subject": "Splendid Health Joy",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 2,
+      "source": "Enron",
+      "subject": "estimated actuals for april 5 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 3,
+      "source": "Enron",
+      "subject": "fw : pooling contract template",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 4,
+      "source": "CEAS_08",
+      "subject": "Supervisors PhD students: 6-monthly reports...",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 5,
+      "source": "Enron",
+      "subject": "your pre order",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 6,
+      "source": "Enron",
+      "subject": "work full - time while earning your degree",
+      "true": "PHISHING",
+      "predicted": "LEGITIMATE",
+      "correct": false
+    },
+    {
+      "index": 7,
+      "source": "Enron",
+      "subject": "re : noms / actual flow for 3 / 21 / 01",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 8,
+      "source": "CEAS_08",
+      "subject": "Re: [doap-interest] New DOAP repository: doapspace.org",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 9,
+      "source": "Enron",
+      "subject": "looking for love ? tonight ?",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 10,
+      "source": "CEAS_08",
+      "subject": "Man's stuff store",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 11,
+      "source": "Enron",
+      "subject": "hpl nom for april 3 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 12,
+      "source": "Enron",
+      "subject": "keep your memories alive with a free canon digital camera !",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 13,
+      "source": "CEAS_08",
+      "subject": "Touch her heart with your new babymaker.",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 14,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 15,
+      "source": "Enron",
+      "subject": "take a look melcher sightseer",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 16,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 17,
+      "source": "CEAS_08",
+      "subject": "ID:19346 The world's largest online prescription-free apothe",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 18,
+      "source": "Enron",
+      "subject": "hpl nom for march 27 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 19,
+      "source": "Enron",
+      "subject": "enron / hpl actuals for november 13 , 2000",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 20,
+      "source": "CEAS_08",
+      "subject": "[Bug 5813] [review] several TLDs are not parsed by URI text ",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 21,
+      "source": "CEAS_08",
+      "subject": "Premo Narcotic Discounts",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 22,
+      "source": "Enron",
+      "subject": "hpl nom for march 28 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "PHISHING",
+      "correct": false
+    },
+    {
+      "index": 23,
+      "source": "Enron",
+      "subject": "a more radiant you",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 24,
+      "source": "CEAS_08",
+      "subject": "Re: Regex issue with scoping in loops.",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 25,
+      "source": "Enron",
+      "subject": "photos",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 26,
+      "source": "Enron",
+      "subject": "hpl nom for may 25 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "PHISHING",
+      "correct": false
+    },
+    {
+      "index": 27,
+      "source": "CEAS_08",
+      "subject": "[Spambayes-checkins] spambayes/spambayes storage.py,1.61,1.6",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 28,
+      "source": "Enron",
+      "subject": "health order for paliourg",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 29,
+      "source": "CEAS_08",
+      "subject": "Love consultants recommend herbal products",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 30,
+      "source": "Enron",
+      "subject": "hpl nom for march 22 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 31,
+      "source": "CEAS_08",
+      "subject": "[Perl Jobs] Perl Developer (onsite), United States, CT, Manc",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 32,
+      "source": "Enron",
+      "subject": "only ciiallis help arc",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 33,
+      "source": "CEAS_08",
+      "subject": "[Perl Jobs] Software Engineer, Weather (onsite), United King",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 34,
+      "source": "Enron",
+      "subject": "indemand payperview movies , sports and more",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 35,
+      "source": "CEAS_08",
+      "subject": "[R] Mixed model with multiple response variables?",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 36,
+      "source": "Enron",
+      "subject": "re : noms / actuals for june 11 th & 12 th",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 37,
+      "source": "CEAS_08",
+      "subject": "RE: Trial IRC Certificate Application",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 38,
+      "source": "Enron",
+      "subject": "re : nom / alloc for june 6 th",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 39,
+      "source": "Enron",
+      "subject": "enron / hpl nom for december 1 , 2000",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 40,
+      "source": "Enron",
+      "subject": "hpl nom for march 22 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 41,
+      "source": "Enron",
+      "subject": "re : nom / vols for 3 / 24 thru 3 / 26 / 01",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 42,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "LEGITIMATE",
+      "correct": false
+    },
+    {
+      "index": 43,
+      "source": "CEAS_08",
+      "subject": "Answers to erectile dysfunction",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 44,
+      "source": "CEAS_08",
+      "subject": "Ravishing Bvlgari watches at Replica Classics   ",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 45,
+      "source": "Enron",
+      "subject": "hpl nom for march 30 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "PHISHING",
+      "correct": false
+    },
+    {
+      "index": 46,
+      "source": "Enron",
+      "subject": "txu fuel company",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 47,
+      "source": "Enron",
+      "subject": "hpl nom for march 29 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 48,
+      "source": "Enron",
+      "subject": "cialis , xanax , valium , viagra at low price ! no prescript",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 49,
+      "source": "Enron",
+      "subject": "meet some lonely fun girls that want it",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 50,
+      "source": "CEAS_08",
+      "subject": "Re: [Python-Dev] Python-Dev Summary Draft (April 1-15, 2007)",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 51,
+      "source": "CEAS_08",
+      "subject": "[Bug 5780] URI processing turns uuencoded strings into http ",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 52,
+      "source": "Enron",
+      "subject": "enron actuals for march 30 - april 1 , 201",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 53,
+      "source": "Enron",
+      "subject": "$ 55486",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 54,
+      "source": "CEAS_08",
+      "subject": "Re: [opensuse] Why can't I use \"shutdown now\" to turn off my",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 55,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 56,
+      "source": "Enron",
+      "subject": "hpl nom for march 17 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 57,
+      "source": "CEAS_08",
+      "subject": "[Perl Jobs] Open Source Perl Developer  (onsite), United Sta",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 58,
+      "source": "Enron",
+      "subject": "hpl nominations for march 31 , 2001 and april 1 - 2 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 59,
+      "source": "Enron",
+      "subject": "live better",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 60,
+      "source": "CEAS_08",
+      "subject": "Never agree to be a loser",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 61,
+      "source": "Enron",
+      "subject": "fw : txu fuel deals imbalances",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 62,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 63,
+      "source": "CEAS_08",
+      "subject": "Fifth / Sixth month",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 64,
+      "source": "Enron",
+      "subject": "want something extra in bed ?",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 65,
+      "source": "CEAS_08",
+      "subject": "Befriend Jenna Jameson",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 66,
+      "source": "Enron",
+      "subject": "want to lose up to 19 % weight . try adipren !",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 67,
+      "source": "CEAS_08",
+      "subject": "Mego claybourne suggestion",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 68,
+      "source": "Enron",
+      "subject": "looking for ci _ . a . _ lis ? we ` re the best source .",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 69,
+      "source": "Enron",
+      "subject": "hpl nom for april , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 70,
+      "source": "CEAS_08",
+      "subject": "ACNielsen Your Voice * 150 e-points for survey completion O1",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 71,
+      "source": "CEAS_08",
+      "subject": "Re: [opensuse] du -shx issue/question",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 72,
+      "source": "Enron",
+      "subject": "re : tufco deal 108058",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 73,
+      "source": "Enron",
+      "subject": "enron / hpl actuals for march 28 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 74,
+      "source": "Enron",
+      "subject": "hpl nom for may 31 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 75,
+      "source": "Enron",
+      "subject": "notebookplus usb travel cam @ $ 15 . 90 only ! !",
+      "true": "PHISHING",
+      "predicted": "PHISHING",
+      "correct": true
+    },
+    {
+      "index": 76,
+      "source": "Enron",
+      "subject": "txu noms . for 10 / 14 - 16 / 00",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 77,
+      "source": "Enron",
+      "subject": "re : noms for 6 / 20 thru 6 / 24 / 01",
+      "true": "LEGITIMATE",
+      "predicted": "LEGITIMATE",
+      "correct": true
+    },
+    {
+      "index": 78,
+      "source": "Enron",
+      "subject": "hpl nom for may 30 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 79,
+      "source": "CEAS_08",
+      "subject": "Perfected Health Joy",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 80,
+      "source": "CEAS_08",
+      "subject": "Tell your  friend how to quit smoking.",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 81,
+      "source": "CEAS_08",
+      "subject": "ScienceNOW Daily Email Alert",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 82,
+      "source": "CEAS_08",
+      "subject": "[Bug 5780] [review] URI processing turns uuencoded strings i",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 83,
+      "source": "Enron",
+      "subject": "fine black woman",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 84,
+      "source": "Enron",
+      "subject": "best prices for impotence drugs",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 85,
+      "source": "Enron",
+      "subject": "",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 86,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 87,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 88,
+      "source": "Enron",
+      "subject": "hpl noms for february 15 , 2000",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 89,
+      "source": "Enron",
+      "subject": "my job sucked . . . . . how about yours k",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 90,
+      "source": "Enron",
+      "subject": "# 9760",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 91,
+      "source": "Enron",
+      "subject": "young cocks deep inside worn out pussies !",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 92,
+      "source": "CEAS_08",
+      "subject": "photo Interesting for 7eac07b0ac7489227e7e5bcf767b2dd3 ",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 93,
+      "source": "Enron",
+      "subject": "my site links to your site now",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 94,
+      "source": "CEAS_08",
+      "subject": "[UAI] [3dpvt2004] 3DPVT 2004: Technical Program and Registra",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 95,
+      "source": "Enron",
+      "subject": "my phone number",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 96,
+      "source": "CEAS_08",
+      "subject": "[SM-USERS] SM 1.4.13 Configuration Question: Mail Domain Par",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 97,
+      "source": "Enron",
+      "subject": "? iceoe aoauau oauei ie caue aoe ? ei",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 98,
+      "source": "Enron",
+      "subject": "",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 99,
+      "source": "Enron",
+      "subject": "i spoke with the person who confirms pg & e on our side , an",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 100,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 101,
+      "source": "Enron",
+      "subject": "re : noms / actual flow for 03 / 20 / 01",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 102,
+      "source": "CEAS_08",
+      "subject": "CEAS 2007 Live Spam Challenge",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 103,
+      "source": "CEAS_08",
+      "subject": "Wekalist Digest, Vol 60, Issue 11",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 104,
+      "source": "CEAS_08",
+      "subject": "It combines the best of Creative Suite 3 Design Premium, Web",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 105,
+      "source": "CEAS_08",
+      "subject": "Re: Fwd: [opensuse] Re: openSUSE Boxed Editions",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 106,
+      "source": "CEAS_08",
+      "subject": "Organic Bytes: Organic Fraud, Brainwashing Children, Anthrax",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 107,
+      "source": "CEAS_08",
+      "subject": "Re: Regex issue with scoping in loops. ",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 108,
+      "source": "Enron",
+      "subject": "d - link dwl - g 510 802 . 11 g wireless pci lan adapter @ $",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 109,
+      "source": "CEAS_08",
+      "subject": "Re: [opensuse] du -shx issue/question",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 110,
+      "source": "CEAS_08",
+      "subject": "Re: [Python-Dev] Python-Dev Summary Draft (April 1-15, 2007)",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 111,
+      "source": "CEAS_08",
+      "subject": "We offer you happiness",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 112,
+      "source": "Enron",
+      "subject": "impress her with a hard erection . . . midband",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 113,
+      "source": "Enron",
+      "subject": "hpl nom for march 28 , 2000",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 114,
+      "source": "Enron",
+      "subject": "re : noms / actual flow for 3 / 29 / 01",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 115,
+      "source": "Enron",
+      "subject": "attract the opposite sex , the ultimate guide for getting wo",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 116,
+      "source": "CEAS_08",
+      "subject": "* All the excitement all the fun and all the money! ",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 117,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 118,
+      "source": "CEAS_08",
+      "subject": "Wekalist Digest, Vol 60, Issue 10",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 119,
+      "source": "Enron",
+      "subject": "enron / hpl actuals for december 11 , 2000",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 120,
+      "source": "CEAS_08",
+      "subject": "MBA-Degreees not for sale- get it.",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 121,
+      "source": "Enron",
+      "subject": "transfer manager vacancy",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 122,
+      "source": "Enron",
+      "subject": "important message - manager",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 123,
+      "source": "Enron",
+      "subject": "hpl nom for march 21 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 124,
+      "source": "CEAS_08",
+      "subject": "Emerging Technologies Friday Update (02/08/2008)",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 125,
+      "source": "CEAS_08",
+      "subject": "Mega-huge dimension for you!",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 126,
+      "source": "Enron",
+      "subject": "enron / hpl actuals for december 6 , 2000",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 127,
+      "source": "CEAS_08",
+      "subject": "SpecialPricesPharmMoreinfo",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 128,
+      "source": "Enron",
+      "subject": "hpl nom . for may 26 - 29 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 129,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 130,
+      "source": "CEAS_08",
+      "subject": "Re: [Python-Dev] Python-Dev Summary Draft (April 1-15, 2007)",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 131,
+      "source": "CEAS_08",
+      "subject": "[Crm114-announce] crm114 filters all mails to unsure ..",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 132,
+      "source": "Enron",
+      "subject": "77 % off for all new software . manes pion",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 133,
+      "source": "Enron",
+      "subject": "re : noms / actual flow for 3 / 22 / 01",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 134,
+      "source": "CEAS_08",
+      "subject": "Karma sutra and massage foreplay techniques",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 135,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 136,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 137,
+      "source": "CEAS_08",
+      "subject": "[Perl Jobs] Top NYC LAMP shop / B2B mod_perl / Perl develope",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 138,
+      "source": "CEAS_08",
+      "subject": "[Perl Jobs] Perl developer, Hungary, Budapest",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 139,
+      "source": "Enron",
+      "subject": "re : noms / actual vols for 3 / 28 / 01",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 140,
+      "source": "Enron",
+      "subject": "try cortizyte , a revolutionary weightloss product .",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 141,
+      "source": "CEAS_08",
+      "subject": "WinnipegFreePress.com Breaking News",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 142,
+      "source": "Enron",
+      "subject": "everyone need this gwpfx",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 143,
+      "source": "Enron",
+      "subject": "there she blows !",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 144,
+      "source": "CEAS_08",
+      "subject": "From Caroline Aragon",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 145,
+      "source": "Enron",
+      "subject": "adip - ren 720 - find out the latest facts . alhambra",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 146,
+      "source": "CEAS_08",
+      "subject": "Splendid Rx Joy",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 147,
+      "source": "Enron",
+      "subject": "find sex - addicts in your area",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 148,
+      "source": "CEAS_08",
+      "subject": "Make your gf happy",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 149,
+      "source": "CEAS_08",
+      "subject": "Re: svn commit: r619753 - in /spamassassin/trunk: lib/Mail/S",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 150,
+      "source": "Enron",
+      "subject": "re : noms / actual vols for 3 / 26 / 01",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 151,
+      "source": "Enron",
+      "subject": "it ' s not working like it used to ?",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 152,
+      "source": "Enron",
+      "subject": "txu fuels / sds nomination for april 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 153,
+      "source": "CEAS_08",
+      "subject": "Money back  guarantee to ensure results!",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 154,
+      "source": "Enron",
+      "subject": "re : code # yr - 983795 - o",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 155,
+      "source": "CEAS_08",
+      "subject": "Re: svn commit: r619753 - in /spamassassin/trunk: lib/Mail/S",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 156,
+      "source": "CEAS_08",
+      "subject": "[Python-Dev] Python-Dev Summary Draft (April 1-15, 2007)",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 157,
+      "source": "CEAS_08",
+      "subject": "Re: [opensuse] The new openSUSE community representative",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 158,
+      "source": "CEAS_08",
+      "subject": "Succeed in close relationships",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 159,
+      "source": "Enron",
+      "subject": "str _ rndlen ( 2 - 4 ) } { extra _ time _ 4 } { word }",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 160,
+      "source": "CEAS_08",
+      "subject": "Re: [opensuse] OpenSuse 11",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 161,
+      "source": "CEAS_08",
+      "subject": "Re: Change 32008: Upgrade to CPAN 1.9203",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 162,
+      "source": "CEAS_08",
+      "subject": "[Bookscanada] Was a book written about this - - ?",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 163,
+      "source": "CEAS_08",
+      "subject": "[spambayes-dev] WG: false positive",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 164,
+      "source": "CEAS_08",
+      "subject": "sa-learn --ham ground rules",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 165,
+      "source": "Enron",
+      "subject": "",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 166,
+      "source": "Enron",
+      "subject": "re : nom / actual vols for 24 th",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 167,
+      "source": "Enron",
+      "subject": "allergies bothering you ? buy drugs online . mitt",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 168,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 169,
+      "source": "Enron",
+      "subject": "hpl nom for march 24 - 26 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 170,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 171,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 172,
+      "source": "Enron",
+      "subject": "claim your winning prize",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 173,
+      "source": "Enron",
+      "subject": "txu contract search",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 174,
+      "source": "Enron",
+      "subject": "87 % off for all new software . darned cannibalized",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 175,
+      "source": "Enron",
+      "subject": "shopping for [ mortgages ] made easy",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 176,
+      "source": "CEAS_08",
+      "subject": "debt consolidation ",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 177,
+      "source": "Enron",
+      "subject": "do you love low - pricedstocks , apwl - pk _ reamer",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 178,
+      "source": "CEAS_08",
+      "subject": "Re: [opensuse] OpenSuse 11",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 179,
+      "source": "CEAS_08",
+      "subject": "[Perl Jobs] Perl & Apache & Unix/Linux & Mysql/Oracle Softwa",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 180,
+      "source": "Enron",
+      "subject": "new product ! cialis soft tabs .",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 181,
+      "source": "CEAS_08",
+      "subject": "[perl #46011] overload \"0+\" doesn't handle integer results ",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 182,
+      "source": "Enron",
+      "subject": "txu fuel deal # 789355",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 183,
+      "source": "CEAS_08",
+      "subject": ";) Look porno Gallery!!!",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 184,
+      "source": "Enron",
+      "subject": "",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 185,
+      "source": "CEAS_08",
+      "subject": "impeccable impedance facet vincent henbane",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 186,
+      "source": "CEAS_08",
+      "subject": "Your order",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 187,
+      "source": "CEAS_08",
+      "subject": "[Perl Jobs] Unix-Scripting Expert (onsite), United States, I",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 188,
+      "source": "CEAS_08",
+      "subject": "Replica Watches",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 189,
+      "source": "CEAS_08",
+      "subject": "Re: [Python-Dev] Python-Dev Summary Draft (April 1-15, 2007)",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 190,
+      "source": "Enron",
+      "subject": "the . m here on the",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 191,
+      "source": "CEAS_08",
+      "subject": "Weird Stories from NBC11.com",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 192,
+      "source": "Enron",
+      "subject": "hpl nom for june 1 , 2001",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 193,
+      "source": "CEAS_08",
+      "subject": "Change your weakness to power",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 194,
+      "source": "Enron",
+      "subject": "re : gisb contracts for intrastate and interstate gas",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 195,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 196,
+      "source": "Enron",
+      "subject": "inter / intra gisb for enron north america",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 197,
+      "source": "Enron",
+      "subject": "fw : txu lone star pipeline standard pooling agreement",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 198,
+      "source": "CEAS_08",
+      "subject": "Re: [Python-Dev] Python-Dev Summary Draft (April 1-15, 2007)",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 199,
+      "source": "CEAS_08",
+      "subject": "[perl #45981] socket memory leak + test case ",
+      "true": "LEGITIMATE",
+      "predicted": "UNKNOWN",
+      "correct": false
+    },
+    {
+      "index": 200,
+      "source": "CEAS_08",
+      "subject": "CNN.com Daily Top 10",
+      "true": "PHISHING",
+      "predicted": "UNKNOWN",
+      "correct": false
+    }
+  ]
+}

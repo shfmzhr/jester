@@ -1,18 +1,14 @@
 ﻿import time
 from collections import defaultdict
 
-# Free tier: 5 scans per day per IP
-# Premium tier: unlimited (valid token required)
-
 _request_log: dict = defaultdict(list)
 _daily_log: dict = defaultdict(list)
 
-FREE_DAILY_LIMIT = 5
+FREE_DAILY_LIMIT = 500
 RATE_WINDOW_SECONDS = 60
-RATE_MAX_PER_MINUTE = 10
+RATE_MAX_PER_MINUTE = 30
 
-# In production this would be a database — for now a hardcoded set
-PREMIUM_TOKENS = set()  # add real tokens here later
+PREMIUM_TOKENS = set()
 
 def is_premium(token: str) -> bool:
     return token and token in PREMIUM_TOKENS
@@ -38,7 +34,7 @@ def is_daily_limit_reached(ip: str, token: str = None) -> bool:
 
 def get_scans_remaining(ip: str, token: str = None) -> int:
     if is_premium(token):
-        return -1  # unlimited
+        return -1
     today_start = time.time() - (time.time() % 86400)
     used = len([t for t in _daily_log[ip] if t > today_start])
     return max(0, FREE_DAILY_LIMIT - used)
