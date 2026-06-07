@@ -1,196 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jester</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      width: 340px;
-      background: #ffffff;
-      color: #1a1a1a;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      width: 360px;
+      background: #f8f9fb;
+      color: #1a1a2e;
     }
 
+    /* ── HEADER ── */
     .header {
-      background: #1a1a2e;
-      color: white;
+      background: #ffffff;
+      border-bottom: 1px solid #e8eaf0;
       padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .header .logo {
-      font-size: 20px;
+    .logo-wrap {
+      width: 34px;
+      height: 34px;
+      background: #f0f0ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
     }
 
     .header h1 {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a2e;
+      letter-spacing: 0.2px;
     }
 
     .header p {
       font-size: 11px;
-      opacity: 0.6;
+      color: #888;
       margin-top: 1px;
     }
 
-    .body {
-      padding: 16px;
+    .scans-badge {
+      background: #f0f0ff;
+      color: #5b52e8;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
     }
+
+    .scans-badge.low { background: #fff3e0; color: #e65100; }
+    .scans-badge.empty { background: #fce4e4; color: #c62828; }
+
+    /* ── BODY ── */
+    .body { padding: 14px; }
 
     textarea {
       width: 100%;
-      height: 120px;
-      border: 1.5px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 10px;
+      height: 110px;
+      border: 1.5px solid #e0e4ee;
+      border-radius: 10px;
+      padding: 10px 12px;
       font-size: 12px;
       font-family: inherit;
       resize: none;
       outline: none;
       color: #333;
+      background: #fff;
       transition: border-color 0.2s;
+      line-height: 1.5;
     }
 
-    textarea:focus {
-      border-color: #4f46e5;
-    }
+    textarea:focus { border-color: #5b52e8; }
 
     .hint {
       font-size: 11px;
-      color: #888;
-      margin-top: 6px;
+      color: #aaa;
+      margin-top: 5px;
+      margin-left: 2px;
     }
 
-    button#scanBtn {
+    /* ── BUTTON ── */
+    #scanBtn {
       width: 100%;
-      margin-top: 12px;
-      padding: 10px;
-      background: #4f46e5;
-      color: white;
+      margin-top: 10px;
+      padding: 11px;
+      background: #5b52e8;
+      color: #fff;
       border: none;
-      border-radius: 8px;
-      font-size: 14px;
+      border-radius: 10px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.2px;
     }
 
-    button#scanBtn:hover { background: #4338ca; }
-    button#scanBtn:disabled { background: #a5b4fc; cursor: not-allowed; }
+    #scanBtn:hover  { background: #4a42d0; }
+    #scanBtn:active { transform: scale(0.98); }
+    #scanBtn:disabled { background: #c5c1f5; cursor: not-allowed; }
 
-    #result {
-      margin-top: 14px;
-      display: none;
-    }
+    /* ── RESULT ── */
+    #result { margin-top: 12px; display: none; }
 
-    .verdict-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .badge-phishing  { background: #fee2e2; color: #b91c1c; }
-    .badge-legitimate { background: #dcfce7; color: #15803d; }
-    .badge-unknown   { background: #f3f4f6; color: #6b7280; }
-
-    .risk-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .risk-label {
-      font-size: 12px;
-      color: #555;
-      min-width: 60px;
-    }
-
-    .risk-bar-wrap {
-      flex: 1;
-      background: #f0f0f0;
-      border-radius: 4px;
-      height: 6px;
-      overflow: hidden;
-    }
-
-    .risk-bar {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 0.4s;
-    }
-
-    .risk-high   .risk-bar { background: #ef4444; }
-    .risk-medium .risk-bar { background: #f59e0b; }
-    .risk-low    .risk-bar { background: #22c55e; }
-
-    .explanation {
-      background: #f9fafb;
-      border-left: 3px solid #4f46e5;
-      border-radius: 0 6px 6px 0;
-      padding: 10px 12px;
-      font-size: 12px;
-      color: #374151;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .signals-title {
-      font-size: 11px;
-      font-weight: 600;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 6px;
-    }
-
-    .signals {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .signal-tag {
-      background: #ede9fe;
-      color: #5b21b6;
-      border-radius: 4px;
-      padding: 3px 8px;
-      font-size: 11px;
-      font-weight: 500;
-    }
-
-    .error-msg {
-      background: #fee2e2;
-      color: #b91c1c;
-      border-radius: 6px;
-      padding: 10px;
-      font-size: 12px;
-    }
-
+    /* Loading */
     .loading {
       text-align: center;
-      padding: 16px 0;
-      font-size: 13px;
-      color: #6b7280;
+      padding: 18px 0;
+      font-size: 12px;
+      color: #888;
     }
 
     .spinner {
       display: inline-block;
-      width: 16px;
-      height: 16px;
-      border: 2px solid #e0e0e0;
-      border-top-color: #4f46e5;
+      width: 15px; height: 15px;
+      border: 2px solid #e0e4ee;
+      border-top-color: #5b52e8;
       border-radius: 50%;
       animation: spin 0.7s linear infinite;
       vertical-align: middle;
@@ -198,23 +138,161 @@
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Result card */
+    .result-card {
+      background: #fff;
+      border: 1px solid #e8eaf0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .verdict-header {
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .verdict-badge {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .badge-phishing   { background: #fce4e4; color: #c62828; }
+    .badge-legitimate { background: #e4f5e9; color: #2e7d32; }
+    .badge-unknown    { background: #f3f4f6; color: #6b7280; }
+
+    .risk-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: capitalize;
+    }
+
+    .risk-high   { background: #fce4e4; color: #c62828; }
+    .risk-medium { background: #fff3e0; color: #e65100; }
+    .risk-low    { background: #e4f5e9; color: #2e7d32; }
+    .risk-unknown { background: #f3f4f6; color: #6b7280; }
+
+    /* Risk bar */
+    .risk-bar-section { padding: 10px 14px 6px; }
+
+    .risk-bar-wrap {
+      background: #f0f2f8;
+      border-radius: 4px;
+      height: 5px;
+      overflow: hidden;
+    }
+
+    .risk-bar {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    .bar-high   { background: #e53935; }
+    .bar-medium { background: #fb8c00; }
+    .bar-low    { background: #43a047; }
+
+    /* Explanation */
+    .explanation {
+      padding: 6px 14px 12px;
+      font-size: 12px;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    /* URL check */
+    .url-section {
+      padding: 8px 14px;
+      border-top: 1px solid #f0f0f0;
+      font-size: 11px;
+    }
+
+    .url-flagged {
+      color: #c62828;
+      font-weight: 600;
+    }
+
+    .url-clean { color: #2e7d32; }
+
+    /* Signals */
+    .signals-section {
+      padding: 10px 14px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .signals-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 7px;
+    }
+
+    .signals-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .signal-tag {
+      background: #f0f0ff;
+      color: #5b52e8;
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* Upgrade prompt */
+    .upgrade-card {
+      background: #fff;
+      border: 1px solid #e8eaf0;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .upgrade-card .icon { font-size: 24px; margin-bottom: 6px; }
+    .upgrade-card h3 { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+    .upgrade-card p { font-size: 11px; color: #888; line-height: 1.5; }
+
+    /* Error */
+    .error-card {
+      background: #fce4e4;
+      border-radius: 10px;
+      padding: 11px 13px;
+      font-size: 12px;
+      color: #c62828;
+    }
   </style>
 </head>
 <body>
 
 <div class="header">
-  <span class="logo">🛡️</span>
-  <div>
-    <h1>Jester</h1>
-    <p>AI-powered phishing detector</p>
+  <div class="header-left">
+    <div class="logo-wrap">🃏</div>
+    <div>
+      <h1>Jester</h1>
+      <p>AI phishing detector</p>
+    </div>
   </div>
+  <span class="scans-badge" id="scansBadge">5 scans left</span>
 </div>
 
 <div class="body">
   <textarea id="emailInput" placeholder="Paste email content here (headers + body)..."></textarea>
-  <p class="hint">On Gmail, press Ctrl+A inside the email and paste here.</p>
+  <p class="hint">On Gmail, press Ctrl+A inside the email then paste here.</p>
   <button id="scanBtn">Scan Email</button>
-
   <div id="result"></div>
 </div>
 
