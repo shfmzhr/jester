@@ -24,77 +24,80 @@
       justify-content: space-between;
     }
 
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .header-left { display: flex; align-items: center; gap: 10px; }
 
-    .logo-svg {
-      width: 36px;
-      height: 36px;
-    }
+    .logo-svg { width: 36px; height: 36px; }
 
     .header-text h1 {
-      font-size: 15px;
-      font-weight: 800;
-      color: #5b21b6;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      font-size: 15px; font-weight: 800; color: #5b21b6;
+      letter-spacing: 2px; text-transform: uppercase;
     }
 
-    .header-text p {
-      font-size: 10px;
-      color: #a78bfa;
-      margin-top: 1px;
-      letter-spacing: 0.3px;
-    }
+    .header-text p { font-size: 10px; color: #a78bfa; margin-top: 1px; }
 
     .scans-badge {
-      background: #f3eeff;
-      color: #5b21b6;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
+      background: #f3eeff; color: #5b21b6;
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px; white-space: nowrap;
     }
-
     .scans-badge.low   { background: #fff3e0; color: #e65100; }
     .scans-badge.empty { background: #fce4e4; color: #c62828; }
 
     /* ── BODY ── */
     .body { padding: 14px; }
 
-    textarea {
-      width: 100%;
-      height: 110px;
+    /* ── METHOD TABS ── */
+    .method-tabs {
+      display: flex;
+      background: #f0eeff;
+      border-radius: 10px;
+      padding: 3px;
+      margin-bottom: 12px;
+      gap: 3px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 8px 6px;
+      border: none;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      color: #a78bfa;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: #5b21b6;
+      box-shadow: 0 1px 4px rgba(91,33,182,0.12);
+    }
+
+    /* ── AUTO DETECT PANEL ── */
+    #autoPanel { display: none; }
+    #pastePanel { display: block; }
+
+    .auto-hint {
+      background: #fff;
       border: 1.5px solid #ede8f8;
       border-radius: 10px;
-      padding: 10px 12px;
-      font-size: 12px;
-      font-family: inherit;
-      resize: none;
-      outline: none;
-      color: #333;
-      background: #fff;
-      transition: border-color 0.2s;
-      line-height: 1.5;
+      padding: 14px;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    textarea:focus { border-color: #5b21b6; }
+    .auto-hint .icon { font-size: 28px; margin-bottom: 6px; }
 
-    .hint {
-      font-size: 11px;
-      color: #bbb;
-      margin-top: 5px;
-      margin-left: 2px;
+    .auto-hint p {
+      font-size: 12px; color: #6b7280; line-height: 1.6;
     }
 
-    /* ── BUTTON ── */
-    #scanBtn {
+    .auto-hint strong { color: #5b21b6; }
+
+    #autoDetectBtn {
       width: 100%;
-      margin-top: 10px;
       padding: 11px;
       background: linear-gradient(135deg, #5b21b6 0%, #22d3ee 100%);
       color: #fff;
@@ -107,6 +110,59 @@
       transition: opacity 0.2s, transform 0.1s;
     }
 
+    #autoDetectBtn:hover  { opacity: 0.92; }
+    #autoDetectBtn:active { transform: scale(0.98); }
+    #autoDetectBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* detected preview */
+    .detected-preview {
+      background: #f3eeff;
+      border: 1.5px solid #ede8f8;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: #5b21b6;
+    }
+
+    .detected-preview .preview-label {
+      font-size: 10px; font-weight: 700; color: #a78bfa;
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
+    }
+
+    #scanAutoBtn {
+      width: 100%;
+      padding: 11px;
+      background: linear-gradient(135deg, #5b21b6 0%, #22d3ee 100%);
+      color: #fff; border: none; border-radius: 10px;
+      font-size: 13px; font-weight: 700; cursor: pointer;
+      letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.1s;
+      display: none;
+    }
+
+    #scanAutoBtn:hover  { opacity: 0.92; }
+    #scanAutoBtn:active { transform: scale(0.98); }
+    #scanAutoBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── PASTE PANEL ── */
+    textarea {
+      width: 100%; height: 110px;
+      border: 1.5px solid #ede8f8; border-radius: 10px;
+      padding: 10px 12px; font-size: 12px; font-family: inherit;
+      resize: none; outline: none; color: #333; background: #fff;
+      transition: border-color 0.2s; line-height: 1.5;
+    }
+    textarea:focus { border-color: #5b21b6; }
+
+    .hint { font-size: 11px; color: #bbb; margin-top: 5px; margin-left: 2px; }
+
+    #scanBtn {
+      width: 100%; margin-top: 10px; padding: 11px;
+      background: linear-gradient(135deg, #5b21b6 0%, #22d3ee 100%);
+      color: #fff; border: none; border-radius: 10px;
+      font-size: 13px; font-weight: 700; cursor: pointer;
+      letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.1s;
+    }
     #scanBtn:hover  { opacity: 0.92; }
     #scanBtn:active { transform: scale(0.98); }
     #scanBtn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -115,179 +171,86 @@
     #result { margin-top: 12px; display: none; }
 
     .loading {
-      text-align: center;
-      padding: 18px 0;
-      font-size: 12px;
-      color: #a78bfa;
+      text-align: center; padding: 18px 0;
+      font-size: 12px; color: #a78bfa;
     }
 
     .spinner {
-      display: inline-block;
-      width: 15px; height: 15px;
-      border: 2px solid #ede8f8;
-      border-top-color: #5b21b6;
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      vertical-align: middle;
-      margin-right: 6px;
+      display: inline-block; width: 15px; height: 15px;
+      border: 2px solid #ede8f8; border-top-color: #5b21b6;
+      border-radius: 50%; animation: spin 0.7s linear infinite;
+      vertical-align: middle; margin-right: 6px;
     }
-
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Result card */
     .result-card {
-      background: #fff;
-      border: 1px solid #ede8f8;
-      border-radius: 12px;
-      overflow: hidden;
+      background: #fff; border: 1px solid #ede8f8;
+      border-radius: 12px; overflow: hidden;
     }
 
     .verdict-header {
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #f5f0ff;
+      padding: 12px 14px; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid #f5f0ff;
     }
 
     .verdict-badge {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 20px;
+      font-size: 11px; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
     }
-
     .badge-phishing   { background: #fce4e4; color: #c62828; }
     .badge-legitimate { background: #e4f5e9; color: #2e7d32; }
     .badge-unknown    { background: #f3f4f6; color: #6b7280; }
 
     .risk-pill {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 20px;
-      text-transform: capitalize;
+      font-size: 11px; font-weight: 600; padding: 3px 10px;
+      border-radius: 20px; text-transform: capitalize;
     }
-
     .risk-high    { background: #fce4e4; color: #c62828; }
     .risk-medium  { background: #fff3e0; color: #e65100; }
     .risk-low     { background: #e4f5e9; color: #2e7d32; }
     .risk-unknown { background: #f3f4f6; color: #6b7280; }
 
     .risk-bar-section { padding: 10px 14px 6px; }
-
-    .risk-bar-wrap {
-      background: #f0eeff;
-      border-radius: 4px;
-      height: 5px;
-      overflow: hidden;
-    }
-
+    .risk-bar-wrap { background: #f0eeff; border-radius: 4px; height: 5px; overflow: hidden; }
     .risk-bar { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
     .bar-high   { background: linear-gradient(90deg, #5b21b6, #e53935); }
     .bar-medium { background: linear-gradient(90deg, #5b21b6, #fb8c00); }
     .bar-low    { background: linear-gradient(90deg, #5b21b6, #22d3ee); }
 
-    .explanation {
-      padding: 6px 14px 12px;
-      font-size: 12px;
-      color: #444;
-      line-height: 1.65;
-    }
+    .explanation { padding: 6px 14px 12px; font-size: 12px; color: #444; line-height: 1.65; }
 
-    .url-section {
-      padding: 8px 14px;
-      border-top: 1px solid #f5f0ff;
-      font-size: 11px;
-    }
-
+    .url-section { padding: 8px 14px; border-top: 1px solid #f5f0ff; font-size: 11px; }
     .url-flagged { color: #c62828; font-weight: 600; }
     .url-clean   { color: #2e7d32; }
 
-    .signals-section {
-      padding: 10px 14px;
-      border-top: 1px solid #f5f0ff;
-    }
-
-    .signals-title {
-      font-size: 10px;
-      font-weight: 700;
-      color: #c4b5fd;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 7px;
-    }
-
+    .signals-section { padding: 10px 14px; border-top: 1px solid #f5f0ff; }
+    .signals-title { font-size: 10px; font-weight: 700; color: #c4b5fd; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 7px; }
     .signals-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+    .signal-tag { background: #f3eeff; color: #5b21b6; border-radius: 5px; padding: 3px 8px; font-size: 11px; font-weight: 500; }
 
-    .signal-tag {
-      background: #f3eeff;
-      color: #5b21b6;
-      border-radius: 5px;
-      padding: 3px 8px;
-      font-size: 11px;
-      font-weight: 500;
-    }
+    .upgrade-card { background: #fff; border: 1px solid #ede8f8; border-radius: 12px; padding: 20px 16px; text-align: center; }
+    .upgrade-card h3 { font-size: 13px; font-weight: 700; color: #5b21b6; margin-bottom: 5px; }
+    .upgrade-card p { font-size: 11px; color: #888; line-height: 1.6; }
 
-    .upgrade-card {
-      background: #fff;
-      border: 1px solid #ede8f8;
-      border-radius: 12px;
-      padding: 20px 16px;
-      text-align: center;
-    }
+    .error-card { background: #fce4e4; border-radius: 10px; padding: 11px 13px; font-size: 12px; color: #c62828; }
 
-    .upgrade-icon {
-      width: 40px; height: 40px;
-      margin: 0 auto 10px;
-    }
-
-    .upgrade-card h3 {
-      font-size: 13px;
-      font-weight: 700;
-      color: #5b21b6;
-      margin-bottom: 5px;
-    }
-
-    .upgrade-card p {
-      font-size: 11px;
-      color: #888;
-      line-height: 1.6;
-    }
-
-    .error-card {
-      background: #fce4e4;
-      border-radius: 10px;
-      padding: 11px 13px;
-      font-size: 12px;
-      color: #c62828;
-    }
+    .info-card { background: #f3eeff; border-radius: 10px; padding: 11px 13px; font-size: 12px; color: #5b21b6; }
   </style>
 </head>
 <body>
 
 <div class="header">
   <div class="header-left">
-    <!-- Inline SVG jester logo matching brand colors -->
     <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Hat -->
       <path d="M10 18 L8 8 L14 14 L18 4 L22 14 L28 8 L26 18 Z" fill="#5b21b6" opacity="0.15" stroke="#5b21b6" stroke-width="1.5" stroke-linejoin="round"/>
-      <!-- Hat teal section -->
       <path d="M18 4 L22 14 L26 18 L18 16 Z" fill="#22d3ee" opacity="0.4"/>
-      <!-- Hat balls -->
       <circle cx="8" cy="8" r="2" fill="#5b21b6"/>
       <circle cx="28" cy="8" r="2" fill="#5b21b6"/>
       <circle cx="18" cy="4" r="2" fill="#22d3ee"/>
-      <!-- Face -->
       <rect x="11" y="18" width="14" height="13" rx="5" fill="white" stroke="#5b21b6" stroke-width="1.5"/>
-      <!-- Eyes -->
       <path d="M14 23 L15 22 L16 23" stroke="#5b21b6" stroke-width="1.2" stroke-linecap="round"/>
       <path d="M20 23 L21 22 L22 23" stroke="#5b21b6" stroke-width="1.2" stroke-linecap="round"/>
-      <!-- Nose -->
       <circle cx="18" cy="25" r="1" fill="#22d3ee"/>
-      <!-- Smile -->
       <path d="M14.5 27 Q18 29.5 21.5 27" stroke="#5b21b6" stroke-width="1.2" stroke-linecap="round" fill="none"/>
     </svg>
     <div class="header-text">
@@ -299,9 +262,36 @@
 </div>
 
 <div class="body">
-  <textarea id="emailInput" placeholder="Paste email content here (headers + body)..."></textarea>
-  <p class="hint">On Gmail, press Ctrl+A inside the email then paste here.</p>
-  <button id="scanBtn">Scan Email</button>
+
+  <!-- Method tabs -->
+  <div class="method-tabs">
+    <button class="tab-btn active" id="tabAuto" onclick="switchTab('auto')">⚡ Auto-detect</button>
+    <button class="tab-btn" id="tabPaste" onclick="switchTab('paste')">📋 Paste email</button>
+  </div>
+
+  <!-- Auto-detect panel -->
+  <div id="autoPanel">
+    <div class="auto-hint">
+      <div class="icon">📧</div>
+      <p>Open an email in <strong>Gmail</strong>, then click below to automatically extract and scan it.</p>
+    </div>
+    <button id="autoDetectBtn">Detect Email from Gmail</button>
+    <div id="detectedPreview" style="display:none; margin-top:10px;">
+      <div class="detected-preview">
+        <div class="preview-label">Email detected</div>
+        <div id="previewSubject"></div>
+      </div>
+      <button id="scanAutoBtn">Scan Detected Email</button>
+    </div>
+  </div>
+
+  <!-- Paste panel -->
+  <div id="pastePanel">
+    <textarea id="emailInput" placeholder="Paste email content here (headers + body)..."></textarea>
+    <p class="hint">On Gmail, press Ctrl+A inside the email then paste here.</p>
+    <button id="scanBtn">Scan Email</button>
+  </div>
+
   <div id="result"></div>
 </div>
 

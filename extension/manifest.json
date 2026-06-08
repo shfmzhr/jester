@@ -1,17 +1,21 @@
-﻿{
+{
   "manifest_version": 3,
   "name": "Jester",
   "version": "1.0",
   "description": "AI-powered phishing email detector and explainer.",
-  "permissions": ["activeTab", "scripting", "storage"],
-  "host_permissions": ["https://phishguard-production-93c3.up.railway.app/*"],
+  "permissions": ["activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "https://phishguard-production-93c3.up.railway.app/*",
+    "https://mail.google.com/*"
+  ],
   "action": {
     "default_popup": "popup.html"
   },
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
   ]
 }
