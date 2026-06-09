@@ -60,7 +60,7 @@ If the email is clearly legitimate, say so. Do not over-classify normal mail.
 def analyse_email(parsed_email: dict, premium: bool = False) -> dict:
     import anthropic
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("phsihshsishs")
     if not api_key:
         return _fallback("Server is missing its ANTHROPIC_API_KEY configuration.")
 

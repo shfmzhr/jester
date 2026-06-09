@@ -34,7 +34,7 @@ def create_app():
 
 
 if __name__ == "__main__":
-    if not os.environ.get("ANTHROPIC_API_KEY"):
+    if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("phsihshsishs")):
         print("WARNING: ANTHROPIC_API_KEY is not set. /analyse will return an error.")
     app = create_app()
     app.run(debug=False)
