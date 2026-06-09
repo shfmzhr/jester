@@ -1,4 +1,4 @@
-﻿const API_URL = "https://phishguard-production-93c3.up.railway.app/analyse";
+const API_URL = "https://phishguard-production-93c3.up.railway.app/analyse";
 
 const scanBtn         = document.getElementById("scanBtn");
 const emailInput      = document.getElementById("emailInput");
@@ -14,6 +14,34 @@ const autoPanel       = document.getElementById("autoPanel");
 const pastePanel      = document.getElementById("pastePanel");
 
 let detectedEmailText = "";
+
+// ── STORAGE HELPERS ──
+async function getStoredData() {
+  return new Promise(resolve => {
+    chrome.storage.local.get(["premiumToken", "scansDate", "scansUsed"], resolve);
+  });
+}
+
+async function saveScansUsed(used) {
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  return new Promise(resolve => {
+    chrome.storage.local.set({ scansDate: today, scansUsed: used }, resolve);
+  });
+}
+
+async function getEffectiveScansRemaining() {
+  const { premiumToken, scansDate, scansUsed } = await getStoredData();
+  if (premiumToken) return -1;
+  const today = new Date().toISOString().slice(0, 10);
+  if (scansDate !== today) return 5; // New day — reset locally
+  return Math.max(0, 5 - (scansUsed || 0));
+}
+
+// ── INIT: restore badge on popup open ──
+(async () => {
+  const remaining = await getEffectiveScansRemaining();
+  updateScansBadge(remaining);
+})();
 
 // ── TAB SWITCHING ──
 tabAuto.addEventListener("click", () => {
@@ -95,19 +123,37 @@ async function runScan(emailText, btn) {
   resultDiv.innerHTML = `<div class="loading"><span class="spinner"></span>Analysing email...</div>`;
 
   try {
+    const { premiumToken } = await getStoredData();
+
+    const headers = { "Content-Type": "application/json" };
+    if (premiumToken) {
+      headers["X-Premium-Token"] = premiumToken;
+    }
+
     const response = await fetch(API_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify({ email_text: emailText })
     });
 
     const data = await response.json();
 
-    if (response.status === 403 && data.upgrade) { showUpgrade(); updateScansBadge(0); return; }
+    if (response.status === 403 && data.upgrade) {
+      showUpgrade();
+      updateScansBadge(0);
+      await saveScansUsed(5);
+      return;
+    }
     if (!response.ok) { showError(data.error || "Server error."); return; }
 
     showResult(data);
-    updateScansBadge(data.scans_remaining);
+
+    // Update badge and persist count
+    const remaining = data.scans_remaining;
+    updateScansBadge(remaining);
+    if (remaining !== -1 && remaining !== null && remaining !== undefined) {
+      await saveScansUsed(5 - remaining);
+    }
 
   } catch (err) {
     showError("Could not reach Jester server. Check your connection.");
@@ -117,7 +163,11 @@ async function runScan(emailText, btn) {
 }
 
 function updateScansBadge(remaining) {
-  if (remaining === -1) { scansBadge.textContent = "Premium ✦"; scansBadge.className = "scans-badge"; return; }
+  if (remaining === -1) {
+    scansBadge.textContent = "Premium ✦";
+    scansBadge.className = "scans-badge premium";
+    return;
+  }
   if (remaining === null || remaining === undefined) return;
   scansBadge.textContent = `${remaining} scan${remaining !== 1 ? "s" : ""} left`;
   scansBadge.className = "scans-badge" + (remaining === 0 ? " empty" : remaining <= 2 ? " low" : "");
@@ -142,9 +192,13 @@ function showResult(data) {
     }
   }
 
-  let signalsHTML = signals.length > 0
-    ? `<div class="signals-section"><div class="signals-title">Signals detected</div><div class="signals-wrap">${signals.map(s => `<span class="signal-tag">${s}</span>`).join("")}</div></div>`
-    : "";
+  // Premium: show full signals. Free tier: show teaser message instead.
+  let signalsHTML = "";
+  if (signals.length > 0) {
+    signalsHTML = `<div class="signals-section"><div class="signals-title">Signals detected</div><div class="signals-wrap">${signals.map(s => `<span class="signal-tag">${s}</span>`).join("")}</div></div>`;
+  } else if (verdict === "PHISHING") {
+    signalsHTML = `<div class="signals-section signals-locked"><span class="lock-icon">🔒</span> Upgrade to <strong>Jester Premium</strong> to see detailed phishing signals.</div>`;
+  }
 
   resultDiv.style.display = "block";
   resultDiv.innerHTML = `
@@ -161,7 +215,7 @@ function showResult(data) {
 
 function showUpgrade() {
   resultDiv.style.display = "block";
-  resultDiv.innerHTML = `<div class="upgrade-card"><h3>Free tier limit reached</h3><p>You have used your 5 free scans for today. Upgrade to Jester Premium for unlimited scans.</p></div>`;
+  resultDiv.innerHTML = `<div class="upgrade-card"><h3>Free tier limit reached</h3><p>You have used your 5 free scans for today. Upgrade to <strong>Jester Premium</strong> for unlimited scans and full signal analysis.</p></div>`;
 }
 
 function showError(msg) {

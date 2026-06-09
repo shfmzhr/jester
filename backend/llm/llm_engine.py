@@ -1,4 +1,4 @@
-﻿import os
+import os
 import json
 
 SYSTEM_PROMPT = """You are Jester, an expert email security analyst specializing in phishing detection.
@@ -32,7 +32,7 @@ If the email is clearly legitimate, say so. Do not over-classify.
 
 def analyse_email(parsed_email: dict, premium: bool = False) -> dict:
     import anthropic
-    client = anthropic.Anthropic(api_key=os.environ.get("phsihshsishs"))
+    client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
     email_text = f"""
 FROM: {parsed_email.get('sender', 'Unknown')}
@@ -76,8 +76,10 @@ BODY:
         result["risk_level"] = result["risk_level"].lower()
 
         if not premium:
+            # Free tier: hide signals (teaser for upgrade) and truncate explanation
             result["signals"] = []
             result["explanation"] = result["explanation"][:200]
+        # Premium: full explanation and full signals — no changes needed
 
         return result
 
