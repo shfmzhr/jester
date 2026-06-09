@@ -40,10 +40,8 @@
       font-size: 11px; font-weight: 600;
       padding: 4px 10px; border-radius: 20px; white-space: nowrap;
     }
-    .scans-badge.low     { background: #fff3e0; color: #e65100; }
-    .scans-badge.empty   { background: #fce4e4; color: #c62828; }
-    .scans-badge.premium { background: linear-gradient(135deg,#4f46e5,#7c3aed); color: #fff; font-weight: 700; }
-    .signals-locked { background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #5b21b6; margin-top: 10px; }
+    .scans-badge.low   { background: #fff3e0; color: #e65100; }
+    .scans-badge.empty { background: #fce4e4; color: #c62828; }
 
     /* ── BODY ── */
     .body { padding: 14px; }
@@ -237,6 +235,24 @@
     .error-card { background: #fce4e4; border-radius: 10px; padding: 11px 13px; font-size: 12px; color: #c62828; }
 
     .info-card { background: #f3eeff; border-radius: 10px; padding: 11px 13px; font-size: 12px; color: #5b21b6; }
+
+    .scans-badge.premium { background: linear-gradient(135deg,#5b21b6,#22d3ee); color:#fff; }
+    .badge-suspicious { background: #fff3e0; color: #e65100; }
+    .premium-link { font-size: 10px; color: #a78bfa; cursor: pointer; text-decoration: underline; margin-top: 2px; display:inline-block; }
+    .premium-panel { display:none; background:#fff; border:1.5px solid #ede8f8; border-radius:10px; padding:12px; margin-bottom:12px; }
+    .premium-panel label { font-size:11px; font-weight:700; color:#5b21b6; display:block; margin-bottom:6px; }
+    .premium-panel .row { display:flex; gap:6px; }
+    .premium-panel input { flex:1; border:1.5px solid #ede8f8; border-radius:8px; padding:8px 10px; font-size:12px; outline:none; }
+    .premium-panel input:focus { border-color:#5b21b6; }
+    .premium-panel button { background:#5b21b6; color:#fff; border:none; border-radius:8px; padding:8px 12px; font-size:12px; font-weight:600; cursor:pointer; }
+    .premium-msg { font-size:11px; margin-top:6px; color:#6b7280; }
+    .premium-hint { font-size:10px; color:#bbb; margin-top:6px; }
+    .action-section { padding:10px 14px; border-top:1px solid #f5f0ff; }
+    .action-title { font-size:10px; font-weight:700; color:#c4b5fd; text-transform:uppercase; letter-spacing:0.6px; }
+    .action-text { font-size:12px; color:#444; line-height:1.6; margin-top:4px; }
+    .lock-section { padding:10px 14px; border-top:1px solid #f5f0ff; font-size:11px; color:#8b5cf6; }
+    .lock-section a { color:#5b21b6; font-weight:600; }
+
   </style>
 </head>
 <body>
@@ -258,6 +274,7 @@
     <div class="header-text">
       <h1>Jester</h1>
       <p>AI phishing detector</p>
+      <span class="premium-link" id="premiumLink">Activate Premium</span>
     </div>
   </div>
   <span class="scans-badge" id="scansBadge">5 scans left</span>
@@ -265,10 +282,21 @@
 
 <div class="body">
 
+  <!-- Premium activation -->
+  <div class="premium-panel" id="premiumPanel">
+    <label for="premiumInput">Premium activation code</label>
+    <div class="row">
+      <input id="premiumInput" type="text" placeholder="Enter code (demo: JESTER-PREMIUM-DEMO-2026)"/>
+      <button id="activateBtn">Activate</button>
+    </div>
+    <div class="premium-msg" id="premiumMsg"></div>
+    <div class="premium-hint">Premium unlocks unlimited scans, detailed signals and recommended actions.</div>
+  </div>
+
   <!-- Method tabs -->
   <div class="method-tabs">
-    <button class="tab-btn active" id="tabAuto" onclick="switchTab('auto')">⚡ Auto-detect</button>
-    <button class="tab-btn" id="tabPaste" onclick="switchTab('paste')">📋 Paste email</button>
+    <button class="tab-btn active" id="tabAuto">⚡ Auto-detect</button>
+    <button class="tab-btn" id="tabPaste">📋 Paste email</button>
   </div>
 
   <!-- Auto-detect panel -->

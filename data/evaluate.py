@@ -13,6 +13,9 @@ CEAS_PATH = r"C:\Users\HP\Downloads\archive (4)\CEAS_08.csv"
 ENRON_PATH = r"C:\Users\HP\Downloads\archive (4)\Enron.csv"
 SAMPLE_SIZE = 100  # 100 from each dataset = 200 total
 OUTPUT_FILE = "evaluation_results.json"
+PREMIUM_TOKEN = os.environ.get("PREMIUM_TOKENS", "JESTER-PREMIUM-DEMO-2026").split(",")[0]
+CLIENT_ID = "eval-harness"
+random.seed(42)  # reproducible sampling
 
 def load_ceas(path, n=50):
     """Load n phishing + n legit from CEAS_08"""
@@ -63,21 +66,20 @@ def call_api(email: dict) -> str:
 Subject: {email['subject']}
 
 {email['body']}"""
-    try:
-        r = requests.post(
-            API_URL,
-            json={"email_text": email_text},
-            timeout=30
-        )
-        data = r.json()
-        if r.status_code == 403:
-            # Rate limit hit — wait and retry
-            time.sleep(10)
-            return "UNKNOWN"
-        return data.get("verdict", "UNKNOWN").upper()
-    except Exception as e:
-        print(f"  API error: {e}")
-        return "UNKNOWN"
+    headers = {"X-Client-Id": CLIENT_ID, "X-Premium-Token": PREMIUM_TOKEN}
+    for attempt in range(3):
+        try:
+            r = requests.post(API_URL, json={"email_text": email_text},
+                              headers=headers, timeout=30)
+            if r.status_code == 429:        # burst limit -> back off and retry
+                time.sleep(5)
+                continue
+            data = r.json()
+            return data.get("verdict", "UNKNOWN").upper()
+        except Exception as e:
+            print(f"  API error: {e}")
+            time.sleep(3)
+    return "UNKNOWN"
 
 def calculate_metrics(results):
     tp = sum(1 for r in results if r["true"] == "PHISHING" and r["predicted"] == "PHISHING")
@@ -119,6 +121,7 @@ def main():
         print(f"[{i+1:3d}/{len(all_emails)}] {correct} True: {email['true_label']:10s} | Predicted: {predicted:10s} | {email['source']} | {email['subject'][:40]}")
 
         results.append({
+            "error": predicted == "UNKNOWN",
             "index": i + 1,
             "source": email["source"],
             "subject": email["subject"][:60],
@@ -134,8 +137,12 @@ def main():
     print("EVALUATION RESULTS")
     print("="*60)
 
-    # Overall metrics
-    metrics = calculate_metrics(results)
+    errors = [r for r in results if r.get("error")]
+    scored = [r for r in results if not r.get("error")]
+    if errors:
+        print(f"\n{len(errors)} request(s) errored and were EXCLUDED from metrics.")
+    # Overall metrics (errors excluded)
+    metrics = calculate_metrics(scored)
     print(f"\nOverall ({metrics['total']} emails):")
     print(f"  Accuracy:  {metrics['accuracy']}%")
     print(f"  Precision: {metrics['precision']}%")
@@ -145,7 +152,7 @@ def main():
 
     # Per-dataset metrics
     for source in ["CEAS_08", "Enron"]:
-        subset = [r for r in results if r["source"] == source]
+        subset = [r for r in scored if r["source"] == source]
         m = calculate_metrics(subset)
         print(f"\n{source} ({m['total']} emails):")
         print(f"  Accuracy: {m['accuracy']}%  Precision: {m['precision']}%  Recall: {m['recall']}%  F1: {m['f1_score']}%")
@@ -158,6 +165,7 @@ def main():
             source: calculate_metrics([r for r in results if r["source"] == source])
             for source in ["CEAS_08", "Enron"]
         },
+        "error_count": len(errors),
         "results": results
     }
 

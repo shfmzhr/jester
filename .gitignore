@@ -8,3 +8,7 @@ venv/
 dist/
 .DS_Store
 Thumbs.db
+*.db
+*.db-wal
+*.db-shm
+quota.db*
